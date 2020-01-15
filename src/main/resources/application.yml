@@ -1,0 +1,10 @@
+server:
+  port: 8081
+
+spring:
+  data:
+    elasticsearch:
+      cluster-nodes: 120.78.157.83:9202
+      cluster-name: cluster_two
+      repositories:
+        enabled: true
