@@ -4,7 +4,7 @@ server:
 spring:
   data:
     elasticsearch:
-      cluster-nodes: 120.78.157.83:9202
+      cluster-nodes: 127.0.0.1:9202
       cluster-name: cluster_two
       repositories:
         enabled: true
