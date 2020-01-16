@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.Entity;
+import javax.persistence.Id;
 
 /**
  * @author liuz
@@ -17,5 +18,11 @@ import javax.persistence.Entity;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Person {
+
+    @Id
     private Integer id;
+
+    private String userName;
+
+    private String password;
 }

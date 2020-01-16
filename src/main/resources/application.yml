@@ -2,9 +2,44 @@ server:
   port: 8081
 
 spring:
+  application:
+    name: elastic-search
+
   data:
     elasticsearch:
-      cluster-nodes: 127.0.0.1:9202
-      cluster-name: cluster_two
+      cluster-nodes: 127.0.0.1:9300
+      cluster-name: docker-cluster
       repositories:
         enabled: true
+
+  datasource:
+    username: root
+    password: root
+    url: jdbc:mysql://127.0.0.1:3306/redis?useSSL=false&amp;useUnicode=true&amp;characterEncoding=utf-8&amp;zeroDateTimeBehavior=convertToNull
+    type: com.alibaba.druid.pool.DruidDataSource
+    driverClassName: com.mysql.jdbc.Driver
+    druid:
+      connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
+      minIdle: 5
+      useGlobalDataSourceStat: true
+      validationQuery: SELECT 1 FROM DUAL
+      initialSize: 5
+      maxWait: 60000
+#      filters: stat,wall,log4j
+      poolPreparedStatements: true
+      maxPoolPreparedStatementPerConnectionSize: 20
+      testOnBorrow: false
+      testWhileIdle: true
+      minEvictableIdleTimeMillis: 300000
+      timeBetweenEvictionRunsMillis: 60000
+      testOnReturn: false
+      maxActive: 20
+  jpa:
+    database: MYSQL
+    show-sql: false
+    generate-ddl: true
+    hibernate:
+      ddl-auto: create
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5Dialect
